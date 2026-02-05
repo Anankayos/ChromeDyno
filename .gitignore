@@ -60,3 +60,9 @@ sysinfo.txt
 *.apk
 *.aab
 *.unitypackage
+ChromeDino/Library
+ChromeDino/Logs
+ChromeDino/Packages
+ChromeDino/ProjectSettings
+ChromeDino/Temp
+ChromeDino/UserSettings

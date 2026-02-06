@@ -332,7 +332,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1390753298
+--- !u!1 &1159593542
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -340,21 +340,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1390753299}
+  - component: {fileID: 1159593543}
+  - component: {fileID: 1159593544}
   m_Layer: 0
-  m_Name: ==OBSTACLES==
+  m_Name: Game Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1390753299
+--- !u!4 &1159593543
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1390753298}
+  m_GameObject: {fileID: 1159593542}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -363,6 +364,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1159593544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1159593542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3594c0882f8ba4d4c9030dc8635a61eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameManager
+  gameSpeed: 5
+  speedCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1601524218
 GameObject:
   m_ObjectHideFlags: 0
@@ -495,7 +515,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0711f64a93c8f5d4ab790e47cd6c7658, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player
-  maxHeight: 2
+  maxHeight: 3
   maxHeightInAir: 1
   isGrounded: 1
   rb: {fileID: 1601524220}
@@ -546,6 +566,55 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 12.485346, y: 12.694072}
   m_EdgeRadius: 0
+--- !u!1 &1906670023
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1906670025}
+  - component: {fileID: 1906670024}
+  m_Layer: 0
+  m_Name: ==SPAWNER==
+  m_TagString: Untagged
+  m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1906670024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1906670023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66aa389ecb472ae42a810282cfe4b141, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  obstaclePrefab:
+  - {fileID: 461312284412636237, guid: 6a22f59a3dadb63458f859cde319c80d, type: 3}
+  - {fileID: 461312284412636237, guid: 9e4773b966573cc48b85d60d795eda93, type: 3}
+  gameManager: {fileID: 1159593544}
+  spawnTime: 2
+--- !u!4 &1906670025
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1906670023}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.39, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2123104178
 GameObject:
   m_ObjectHideFlags: 0
@@ -688,7 +757,8 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 519420032}
+  - {fileID: 1159593543}
   - {fileID: 619394802}
+  - {fileID: 1906670025}
   - {fileID: 40084058}
   - {fileID: 285566494}
-  - {fileID: 1390753299}

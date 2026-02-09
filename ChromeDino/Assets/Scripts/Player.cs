@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using UnityEngine.Events;
 public class Player : MonoBehaviour
 {
     //VALUES
@@ -9,18 +9,28 @@ public class Player : MonoBehaviour
     //REFERENCES 
     public Rigidbody2D rb;
     public Vector2 jumpForce;
+    public GameManager gameManager;
+    public UnityEvent GameOver;
+    public UnityEvent RestartGame;
     
     private void OnCollisionEnter2D(Collision2D collision)
     {
         {
-            Debug.Log("Player is grounded");
+           // Debug.Log("Player is grounded");
             isGrounded = true;
+            if (collision.gameObject.CompareTag("Obstacle"))
+            {
+                GameOver.Invoke();
+                Debug.Log("Game Over");
+                RestartGame.Invoke();
+                Debug.Log("Restart Game");
+            }
         }
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
         {
-            Debug.Log("Player is not grounded");
+           // Debug.Log("Player is not grounded");
             isGrounded = false;
         }
     }
@@ -50,15 +60,16 @@ public class Player : MonoBehaviour
     {
        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
        {
-           Debug.Log("Jump is " + maxHeight);
+          // Debug.Log("Jump is " + maxHeight);
            //rb.AddForce(jumpForce);
            //rb.linearVelocity = jumpForce;
            //cinematic formula = sqrt(2 * gravity * height)
-           Jump(maxHeight); 
+           Jump(maxHeight);
+           gameManager.GameOver(); 
        } 
        else
        {
-           Debug.Log("No Jump");
+           //Debug.Log("No Jump");
        }
     //    Air Jump
     //    if (Input.GetKeyDown(KeyCode.Space) && !isGrounded)

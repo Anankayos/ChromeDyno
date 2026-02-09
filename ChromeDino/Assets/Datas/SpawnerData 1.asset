@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf60825a294716c42b477232c7764eec, type: 3}
+  m_Name: SpawnerData 1
+  m_EditorClassIdentifier: Assembly-CSharp::SpawnerData
+  minCooldown: 5
+  maxCooldown: 7.5
+  obstacles:
+  - {fileID: 461312284412636237, guid: 82be7a4e4463dca4d97a413fb5adbe42, type: 3}
+  timeTreshold: 15

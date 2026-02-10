@@ -65,7 +65,6 @@ public class Player : MonoBehaviour
            //rb.linearVelocity = jumpForce;
            //cinematic formula = sqrt(2 * gravity * height)
            Jump(maxHeight);
-           gameManager.GameOver(); 
        } 
        else
        {
